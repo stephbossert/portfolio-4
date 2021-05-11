@@ -1,0 +1,96 @@
+--
+title: "Portfolio 4, Perceived Wellbeing Predictors"
+author: "Steph Bossert"
+date: "4/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse) 
+library(tidymodels)
+library(openintro)
+library(ggplot2)
+library(haven)
+HEXACO_PC2 <- read_sav("~/Documents/Grad School Fall 2020/Research/Data/EWB Data.SPSS/HEXACO_PC2.sav")
+```
+
+###Regression Perceived Wellbeing predictors Week 45
+```{r WB45}
+m_Hh= lm(PC_WELL_45MEAN~HEX_Wk45_Hh, data = HEXACO_PC2) #Create the linear regression
+summary(m_Hh)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_45MEAN, y=HEX_Wk45_Hh)) + 
+  geom_point(shape=18, color="blue")+
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="orange") 
+m_ext = lm(PC_WELL_45MEAN~HEX_Wk45_Ext, data = HEXACO_PC2) #Create the linear regression
+summary(m_ext)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_45MEAN, y=HEX_Wk45_Ext)) + 
+  geom_point(shape=18, color="blue")+
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="red") 
+
+m_agr = lm(PC_WELL_45MEAN~HEX_Wk45_Agr, data = HEXACO_PC2) #Create the linear regression
+summary(m_agr)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_45MEAN, y=HEX_Wk45_Agr)) + 
+  geom_point(shape=18, color="yellow")+
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="purple") 
+
+m_open = lm(PC_WELL_45MEAN~HEX_Wk45_Ope, data = HEXACO_PC2) #Create the linear regression
+summary(m_open)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_45MEAN, y=HEX_Wk45_Ope)) + 
+  geom_point(shape=18, color="blue")+
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="purple") 
+
+m_cons = lm(PC_WELL_45MEAN~HEX_Wk45_Con, data = HEXACO_PC2) #Create the linear regression
+summary(m_cons)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_45MEAN, y=HEX_Wk45_Con)) + 
+  geom_point(shape=18, color="blue")+
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="gold") 
+```
+### Regression, perceived wellbeing week 52
+```{r WBWk52,error=TRUE}
+m_Hh= lm(PC_WELL_52MEAN~HEX_Wk52_Hh, data = HEXACO_PC2) #Create the linear regression
+summary(m_Hh)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_45MEAN, y=HEX_Wk45_Hh)) + 
+  geom_point(shape=18, color="black")+
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="orange")
+
+m_ext = lm(PC_WELL_52MEAN~HEX_Wk52_Ext, data = HEXACO_PC2) #Create the linear regression
+summary(m_ext)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_52MEAN, y=HEX_Wk52_Ext)) + 
+  geom_point(shape=18, color="blue")+
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="red") 
+
+m_agr = lm(PC_WELL_52MEAN~HEX_Wk52_Agr, data = HEXACO_PC2) #Create the linear regression
+summary(m_ext)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_52MEAN, y=HEX_Wk52_Agr)) + 
+  geom_point(shape=18, color="green") +
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="blue") 
+
+m_open = lm(PC_WELL_52MEAN~HEX_Wk52_Ope, data = HEXACO_PC2) #Create the linear regression
+summary(m_ext)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_52MEAN, y=HEX_Wk52_Ope)) + 
+  geom_point(shape=18, color="blue")+
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="purple") 
+
+m_cons = lm(PC_WELL_52MEAN~HEX_Wk52_Con, data = HEXACO_PC2) #Create the linear regression
+summary(m_cons)
+ggplot(HEXACO_PC2, aes(x=PC_WELL_52MEAN, y=HEX_Wk52_Con)) + 
+  geom_point(shape=18, color="blue") +
+  geom_smooth(method=lm, se=FALSE, linetype="solid",
+             color="orange) 
+```
+
+
+
+
+
+
+`````
